@@ -72,3 +72,37 @@ Your memory usage beats 82.77 % of cpp submissions (12.9 MB)
 */
 ```
 
+自己写的：
+
+```C++
+/*
+ * @lc app=leetcode.cn id=387 lang=cpp
+ *
+ * [387] 字符串中的第一个唯一字符
+ */
+
+// @lc code=start
+class Solution {
+    public:
+    int firstUniqChar(string s)
+    {
+        unordered_map<char, int> hashmap;
+        for (char c : s) {
+            hashmap[c]++;
+        }
+        for (int i = 0; i < s.length(); i++) {
+            if (hashmap[s[i]] == 1)
+                return i;
+        }
+        return -1;
+    }
+};
+/*
+Accepted
+104/104 cases passed (92 ms)
+Your runtime beats 21.45 % of cpp submissions
+Your memory usage beats 75.52 % of cpp submissions (13.1 MB)
+使用map，第一遍存储数据，第二遍进行循环
+*/
+```
+
